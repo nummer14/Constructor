@@ -1,20 +1,24 @@
-class Person {
-    String name;
-    int age;
+class Car {
+    String brand;
+    int year;
+    String model;
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public Car(String brand, int year, String model) {
+        this.brand = brand;
+        this.year = year;
+        this.model = model;
+    }
+
+    public void displayinfo() {
+        System.out.println("Car brand: " + brand + ", Year: " + year + ", Model: " + model);
+
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-    Person p1 = new Person("홍성현", 20);
-    Person p2 = new Person("h662", 60);
+        Car car = new Car("KIA", 2025, "K9");
 
-    /*int a = 10;
-    a = 10;
-    int a =10;*/
+        car.displayinfo();
     }
 }
