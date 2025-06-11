@@ -2,63 +2,53 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        final String COLA = "코카콜라";
+        final String CIDER = "사이다";
+        final String WATER = "에비앙";
+
+        final int COLA_PRICE = 800;
+        final int CIDER_PRICE = 1500;
+        final int WATER_PRICE = 2000;
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("** 음료 자판기 **");
-        System.out.println("오렌지주스 (1500원)");
-        System.out.println("콜라 (1300원)");
-        System.out.println("사이다 (1300원)");
-        System.out.println("아메리카노 (1400원)");
-        System.out.println("보리차 (1200원)");
-        System.out.println("물 (1100원)");
+        System.out.println("=== 자판기 메뉴 ===");
+        System.out.printf("1. %s (%d원)\n", COLA, COLA_PRICE);
+        System.out.printf("2. %s (%d원)\n", CIDER, CIDER_PRICE);
+        System.out.printf("3. %s (%d원)\n", WATER, WATER_PRICE);
 
-        int choice = scanner.nextInt();
+        String choice = scanner.nextLine();
         int price = 0;
         String item = "";
 
-        //입력한 값에 따른 조건문
-        // if문 (숫자를 비교), 스위치 (단순히 값만 체크)
-
         switch (choice) {
-            case 1:
-                item = "오렌지주스";
-                price = 1500;
+            case COLA:
+                item = COLA;
+                price = COLA_PRICE;
                 break;
-            case 2:
-                item = "콜라";
-                price = 1300;
+            case CIDER:
+                item = CIDER;
+                price = CIDER_PRICE;
                 break;
-            case 3:
-                item = "사이다";
-                price = 1300;
-                break;
-            case 4:
-                item = "아메리카노";
-                price = 1400;
-                break;
-            case 5:
-                item = "보리차";
-                price = 1200;
-                break;
-            case 6:
-                item = "물";
-                price = 1100;
+            case WATER:
+                item = WATER;
+                price = WATER_PRICE;
                 break;
             default:
-                System.out.println("잘못 누르셨습니다.");
+                System.out.println("잘못된 선택입니다.");
                 return;
         }
 
-        System.out.println(item + "을(를) 선택하셨습니다. 금액을 넣어주세요: "); // return시 실행 안 됨
+        System.out.println(item + "을(를) 선택하셨습니다. 금액을 넣어주세요: ");
         int money = scanner.nextInt();
 
         if(money < price) {
             System.out.println("금액이 부족합니다. 거래를 취소합니다.");
         } else {
             int change = money - price;
-            System.out.printf("%s을(를) 드립니다. 거스름돈 %d원을 가져가세요.\n", item, change);
+            System.out.printf("%s을(를) 드립니다. 잔돈은 %d입니다.\n", item, change);
         }
-        System.out.println("안녕히 가세요.");
+
+        System.out.println("빠이빠이");
     }
 }
